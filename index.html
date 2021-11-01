@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="craft-weapon">
+        <header>
+            <div>
+                <span>Крафт оружия</span>
+                <span>Выберите тип оружия и произведите крафт.</span>
+            </div>
+            <img src="./assets/img/craft.svg">
+        </header>
+        <main>
+            <div class="sections">
+                <div 
+                    v-for="section in weapons" 
+                    @click="activeSection(section.img)"
+                    :class="section.active ? 'active' : ''"
+                >
+                    <span>{{section.name}}</span>
+                    <img :src="section.active ? './assets/img/sections/' + section.img + '-active.svg'  : './assets/img/sections/' + section.img + '.svg' ">
+                </div>
+            </div>
+            <div class="content">
+                <div v-if="weapons[0].active" v-for="item in weapons[0].items" class="slot">
+                    <div class="info-slot">
+                        <p class="name-section">{{item.name}}</p>
+                        <p class="descript-section">{{item.description}}</p>
+                        <div @click="craft(item.hash)" class="craft">
+                            Скрафтить
+                        </div>
+                    </div>
+                    <div class="materials">
+                        {{item.resources}} матов.
+                    </div>
+                    <img :src="'./assets/img/items/'+ item.img +'.svg'">
+                </div>
+                <div v-if="weapons[1].active" v-for="item in weapons[1].items" class="slot">
+                    <div class="info-slot">
+                        <p class="name-section">{{item.name}}</p>
+                        <p class="descript-section">{{item.description}}</p>
+                        <div @click="craft(item.hash)" class="craft">
+                            Скрафтить
+                        </div>
+                    </div>
+                    <div class="materials">
+                        {{item.resources}} матов.
+                    </div>
+                    <img :src="'./assets/img/items/'+ item.img +'.svg'">
+                </div>
+                <div v-if="weapons[2].active" v-for="item in weapons[2].items" class="slot">
+                    <div class="info-slot">
+                        <p class="name-section">{{item.name}}</p>
+                        <p class="descript-section">{{item.description}}</p>
+                        <div @click="craft(item.hash)" class="craft">
+                            Скрафтить
+                        </div>
+                    </div>
+                    <div class="materials">
+                        {{item.resources}} матов.
+                    </div>
+                    <img :src="'./assets/img/items/'+ item.img +'.svg'">
+                </div>
+                <div v-if="weapons[3].active" v-for="item in weapons[3].items" class="slot">
+                    <div class="info-slot">
+                        <p class="name-section">{{item.name}}</p>
+                        <p class="descript-section">{{item.description}}</p>
+                        <div @click="craft(item.hash)" class="craft">
+                            Скрафтить
+                        </div>
+                    </div>
+                    <div class="materials">
+                        {{item.resources}} матов.
+                    </div>
+                    <img :src="'./assets/img/items/'+ item.img +'.svg'">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="./js/script.js"></script>
+
+</html>
